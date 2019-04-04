@@ -1,4 +1,4 @@
-## Self-supervised Representation Learning from Videos for Facial Action Unit Detection, CVPR 2019 (oral)
+### Self-supervised Representation Learning from Videos for Facial Action Unit Detection, CVPR 2019 (oral)
 
 ### If you use this code in your paper, please cite the following:
 ```
