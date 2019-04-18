@@ -2,7 +2,7 @@
 
 ### If you use this code in your paper, please cite the following:
 ```
-@inproceedings{li2019twin,
+@inproceedings{li2019self,
   title={Self-supervised Representation Learning from Videos for Facial Action Unit Detection},
   author={Li, Yong and Zeng, Jiabei and Shan, Shiguang and Chen, Xilin},
   booktitle={CVPR},
