@@ -5,6 +5,7 @@ We propose a Twin-Cycle Autoencoder (TCAE) that self-supervisedly learns two emb
 
 ![image](https://github.com/mysee1989/TCAE/blob/master/img/3-cropped.jpg)
 
+<br />After training, the learned encoder can be used for AU detection. The extracted AU embedding from the encoder can be used for both AU detection and facial image retrieval.
 
 ### If you use this code in your paper, please cite the following:
 ```
