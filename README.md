@@ -10,14 +10,14 @@ The generated AU-changed and pose-changed faces are shown as below:
 
 *Please refer to the [original paper](http://openaccess.thecvf.com/content_CVPR_2019/papers/Li_Self-Supervised_Representation_Learning_From_Videos_for_Facial_Action_Unit_Detection_CVPR_2019_paper.pdf) and [supplementary file](http://openaccess.thecvf.com/content_CVPR_2019/supplemental/Li_Self-Supervised_Representation_Learning_CVPR_2019_supplemental.pdf) for more examples.*
 
-<br />The learned AU embedding from TCAE can be used for both AU detection and facial image retrieval.
-
 ### Training yourself:
 
 - Download the training dataset: [Voxceleb1/2](http://www.robots.ox.ac.uk/~vgg/data/voxceleb/)
 - Extract the frames at 1fps, then detect & align the faces
 - Split the face images for training/validation/testing by **dataset_split.py**
 - Train TCAE by **self_supervised_train_TCAE.py**
+
+*The learned AU embedding from TCAE can be used for both **AU detection** and **facial image retrieval**.*
 
 ### If you use this code in your paper, please cite the following:
 ```
