@@ -10,7 +10,12 @@ The generated AU-changed and pose-changed faces are shown as below:
 
 *Please refer to the [original paper](http://openaccess.thecvf.com/content_CVPR_2019/papers/Li_Self-Supervised_Representation_Learning_From_Videos_for_Facial_Action_Unit_Detection_CVPR_2019_paper.pdf) and [supplementary file](http://openaccess.thecvf.com/content_CVPR_2019/supplemental/Li_Self-Supervised_Representation_Learning_CVPR_2019_supplemental.pdf) for more examples.*
 
-### Training yourself:
+### Prerequisites
+
+- Python 2.x
+- Pytorch 0.4.1
+
+### Training yourself
 
 - Download the training dataset: [Voxceleb1/2](http://www.robots.ox.ac.uk/~vgg/data/voxceleb/)
 - Extract the frames at 1fps, then detect & align the faces, *organize the face directories in format: data/id09238/VqEJCd7pbgQ/0_folder/img_0_001.jpg*
