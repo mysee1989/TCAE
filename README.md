@@ -21,10 +21,11 @@ The generated AU-changed and pose-changed faces are shown as below:
 
 ### If you use this code in your paper, please cite the following:
 ```
-@inproceedings{li2019self,
-  title={Self-supervised Representation Learning from Videos for Facial Action Unit Detection},
-  author={Li, Yong and Zeng, Jiabei and Shan, Shiguang and Chen, Xilin},
-  booktitle={CVPR},
-  year={2019}
+@InProceedings{Li_2019_CVPR,
+author = {Li, Yong and Zeng, Jiabei and Shan, Shiguang and Chen, Xilin},
+title = {Self-Supervised Representation Learning From Videos for Facial Action Unit Detection},
+booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+month = {June},
+year = {2019}
 }
 ```
