@@ -7,7 +7,7 @@ We propose a Twin-Cycle Autoencoder (TCAE) that self-supervisedly learns two emb
 
 The generated AU-changed and pose-changed faces are shown as below:
 ![](img/2-cropped.jpg)
-*Please refer to the ["original paper"](http://openaccess.thecvf.com/content_CVPR_2019/papers/Li_Self-Supervised_Representation_Learning_From_Videos_for_Facial_Action_Unit_Detection_CVPR_2019_paper.pdf and ["supplementary file"](http://openaccess.thecvf.com/content_CVPR_2019/supplemental/Li_Self-Supervised_Representation_Learning_CVPR_2019_supplemental.pdf) for more examples.*
+*Please refer to the ["original paper"](http://openaccess.thecvf.com/content_CVPR_2019/papers/Li_Self-Supervised_Representation_Learning_From_Videos_for_Facial_Action_Unit_Detection_CVPR_2019_paper.pdf) and ["supplementary file"](http://openaccess.thecvf.com/content_CVPR_2019/supplemental/Li_Self-Supervised_Representation_Learning_CVPR_2019_supplemental.pdf) for more examples.*
 
 <br />The learned AU embedding from TCAE can be used for both AU detection and facial image retrieval.
 
