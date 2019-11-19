@@ -17,7 +17,7 @@ The generated AU-changed and pose-changed faces are shown as below:
 - Download the training dataset: [Voxceleb1/2](http://www.robots.ox.ac.uk/~vgg/data/voxceleb/)
 - Extract the frames at 1fps, then detect & align the faces
 - Split the face images for training/validation/testing by **dataset_split.py**
-- Training TCAE by **self_supervised_train_TCAE.py**
+- Train TCAE by **self_supervised_train_TCAE.py**
 
 ### If you use this code in your paper, please cite the following:
 ```
