@@ -1,6 +1,6 @@
 ### Self-supervised Representation Learning from Videos for Facial Action Unit Detection, CVPR 2019 (oral)
 
-We propose a Twin-Cycle Autoencoder (TCAE) that self-supervisedly learns two embeddings to encode the movements of Facial Actions and Head Motions.
+We propose a Twin-Cycle Autoencoder (TCAE) that self-supervisedly learns two embeddings to encode the movements of **Facial Actions**F and **FHead Motions**F.
 
 <br />Given a source and target facial images, TCAE is tasked to change the AUs or head poses of the source frame to those of the target frame by predicting the AU-related and pose-related movements, respectively. 
 
