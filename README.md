@@ -12,9 +12,9 @@ The generated AU-changed and pose-changed faces are shown as below:
 
 <br />The learned AU embedding from TCAE can be used for both AU detection and facial image retrieval.
 
-### Training yourself:
-⋅⋅⋅1, Download the training dataset: [Voxceleb1/2](http://www.robots.ox.ac.uk/~vgg/data/voxceleb/)
-⋅⋅⋅2, Extract the frames at 1fps, then detect & the align the faces
+### ⋅⋅*Training yourself:
+1., Download the training dataset: [Voxceleb1/2](http://www.robots.ox.ac.uk/~vgg/data/voxceleb/)
+2., Extract the frames at 1fps, then detect & the align the faces
 
 
 ### If you use this code in your paper, please cite the following:
