@@ -24,6 +24,10 @@ The generated AU-changed and pose-changed faces are shown as below:
 
 *The learned AU embedding from TCAE can be used for both **AU detection** and **facial image retrieval**.*
 
+### Pretrained model released !
+
+- Download pretrained model and script at: [onedrive](https://1drv.ms/u/s!AjMhxexGSrsZmg2TxGQzVgfLwGQu?e=OphhYc)
+
 ### If you use this code in your paper, please cite the following:
 ```
 @InProceedings{Li_2019_CVPR,
