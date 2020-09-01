@@ -28,6 +28,11 @@ The generated AU-changed and pose-changed faces are shown as below:
 
 - Download pretrained model and script at: [onedrive](https://1drv.ms/u/s!AjMhxexGSrsZmg2TxGQzVgfLwGQu?e=OphhYc)
 
+### Frequently asked questions..
+
+- If you adopt the released model, you should align the facial images in AU datasets by Seetaface. [link](https://github.com/seetafaceengine/SeetaFace2)
+- If you train the model yourself, the facial images in voxceleb1/2 should be detected & aligned & cropped, as done in face detection.
+
 ### If you use this code in your paper, please cite the following:
 ```
 @InProceedings{Li_2019_CVPR,
