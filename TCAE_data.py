@@ -13,16 +13,39 @@ import pdb
 VOX_CELEB_LOCATION = '/home/liyong/data/frame_cropped'
 
 def load_img(file_path):
+    """
+    Loads an image from file.
+
+    Args:
+        file_path: (str): write your description
+    """
     img = Image.open(file_path).convert('RGB')
     return img
 
 def load_img_mask(file_path):
+    """
+    Load an image mask.
+
+    Args:
+        file_path: (str): write your description
+    """
     img = Image.open(file_path).convert('RGB')
     return img
 
 
 class VoxCeleb2(data.Dataset):
     def __init__(self, num_views, random_seed, dataset, additional_face=True, jittering=False):
+        """
+        Initialize a random dataset.
+
+        Args:
+            self: (todo): write your description
+            num_views: (int): write your description
+            random_seed: (int): write your description
+            dataset: (todo): write your description
+            additional_face: (todo): write your description
+            jittering: (todo): write your description
+        """
         if dataset == 1:
             self.ids = np.load('../Datasets/voxceleb1_ori/train.npy')
         if dataset == 2:
@@ -58,13 +81,33 @@ class VoxCeleb2(data.Dataset):
                 Scale((256,256)), ToTensor()])
 
     def __len__(self):
+        """
+        Return the number of the array.
+
+        Args:
+            self: (todo): write your description
+        """
         return self.ids.shape[0] - 1
 
     def __getitem__(self, index):
+        """
+        Return item at index.
+
+        Args:
+            self: (todo): write your description
+            index: (int): write your description
+        """
         #(other_face, _) = self.get_blw_item(self.rng.randint(self.__len__()))
         return self.get_blw_item(index)
 
     def get_blw_item(self, index):
+        """
+        Get the item item from the item queue
+
+        Args:
+            self: (todo): write your description
+            index: (int): write your description
+        """
         # Load the images
         imgs = [0] * (self.num_views)
 

@@ -7,17 +7,40 @@ import numpy as np
 
 class Au_detection(nn.Module):
 	def __init__(self, input_fc=256, out_fc=12):
+     """
+     Initialize the batch.
+
+     Args:
+         self: (todo): write your description
+         input_fc: (todo): write your description
+         out_fc: (str): write your description
+     """
 		super(Au_detection, self).__init__()
                 self.batch_norm = nn.BatchNorm1d(input_fc)
                 self.linear = nn.Linear(input_fc, out_fc, bias=False)
 
         def forward(self, in_put):
+            """
+            Forward computation.
+
+            Args:
+                self: (todo): write your description
+                in_put: (int): write your description
+            """
             out = self.batch_norm(in_put)
             out = self.linear(out)
             return out
 
 class Gen_sep_feature(nn.Module):
     def __init__(self, output_size=256, num_filters = 32):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+            output_size: (int): write your description
+            num_filters: (int): write your description
+        """
         super(Gen_sep_feature, self).__init__()
         # return pose feature, expression feature
         self.conv1 = nn.Conv2d(3, num_filters, 4, 2, 1)  # 3 -> 32
@@ -50,6 +73,13 @@ class Gen_sep_feature(nn.Module):
         self.leaky_relu = nn.LeakyReLU(0.2, True)
 
     def forward(self, x):
+        """
+        Forward computation.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
         # general encoder
         x = self.leaky_relu(self.batch_norm(self.conv1(x)))
         x = self.leaky_relu(self.batch_norm2_0(self.conv2(x)))
@@ -71,6 +101,15 @@ class Gen_sep_feature(nn.Module):
 class Discriminator(nn.Module):
     """Discriminator. PatchGAN."""
     def __init__(self, image_size=256, conv_dim=64, repeat_num=6):
+        """
+        Initialize the layer.
+
+        Args:
+            self: (todo): write your description
+            image_size: (int): write your description
+            conv_dim: (int): write your description
+            repeat_num: (int): write your description
+        """
         super(Discriminator, self).__init__()
 
         layers = []
@@ -88,6 +127,13 @@ class Discriminator(nn.Module):
         self.conv1 = nn.Conv2d(curr_dim, 1, kernel_size=3, stride=1, padding=1, bias=False)
 
     def forward(self, x):
+        """
+        Forward computation.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
         h = self.main(x)
         out_real = self.conv1(h)
         return out_real.squeeze()
@@ -100,6 +146,18 @@ generate 2 intermediate feature, 2 flow
 class FrontaliseModelMasks_wider(nn.Module):
 	def __init__(self, num_decoders=5, inner_nc=128, num_additional_ids=0, \
                 num_output_channels=2, smaller=False, num_masks=0):
+     """
+     Initialize the decoder.
+
+     Args:
+         self: (todo): write your description
+         num_decoders: (int): write your description
+         inner_nc: (todo): write your description
+         num_additional_ids: (int): write your description
+         num_output_channels: (int): write your description
+         smaller: (todo): write your description
+         num_masks: (int): write your description
+     """
 		super(FrontaliseModelMasks_wider, self).__init__()
 		print(num_additional_ids, inner_nc)
 
@@ -116,6 +174,14 @@ class FrontaliseModelMasks_wider(nn.Module):
 
 
 	def generate_encoder_layers(self, output_size=128, num_filters=64):
+     """
+     Generate encoder layers.
+
+     Args:
+         self: (todo): write your description
+         output_size: (int): write your description
+         num_filters: (int): write your description
+     """
 		pre_batch_norm = nn.BatchNorm2d(3)
 		conv1 = nn.Conv2d(3, num_filters, 4, 2, 1)  # 3 -> 32
 		conv2 = nn.Conv2d(num_filters, num_filters * 2, 4, 2, 1) # 32 -> 64
@@ -147,6 +213,15 @@ class FrontaliseModelMasks_wider(nn.Module):
                         conv7, batch_norm8_3, leaky_relu, conv8)
 
 	def generate_decoder_layers(self, num_input_channels, num_output_channels=2, num_filters=32):
+     """
+     Generate num_decoder.
+
+     Args:
+         self: (todo): write your description
+         num_input_channels: (int): write your description
+         num_output_channels: (int): write your description
+         num_filters: (int): write your description
+     """
 		up = nn.Upsample(scale_factor=2, mode='bilinear')
 
 		dconv1 = nn.Conv2d(num_input_channels, num_filters*8, 3, 1, 1)

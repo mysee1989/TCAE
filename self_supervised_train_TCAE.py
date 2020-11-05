@@ -81,12 +81,28 @@ criterion_feature_recon = nn.MSELoss(reduce=False).cuda()
 criterion_feature_recon_val = nn.MSELoss().cuda()
 
 def criterion_l2(input_f, target_f):
+    """
+    R computes the length of a function.
+
+    Args:
+        input_f: (todo): write your description
+        target_f: (str): write your description
+    """
     # return a per batch l2 loss
     res = (input_f - target_f)
     res = res * res
     return res
 
 def get_sort_loss(pre_sort_loss, sort_idx_list, start, end):
+    """
+    Return a list of sort_loss.
+
+    Args:
+        pre_sort_loss: (str): write your description
+        sort_idx_list: (str): write your description
+        start: (int): write your description
+        end: (int): write your description
+    """
     res = pre_sort_loss[sort_idx_list[start]]
     for idx in range(start+1, end):
         res += pre_sort_loss[sort_idx_list[idx]] 
@@ -94,20 +110,44 @@ def get_sort_loss(pre_sort_loss, sort_idx_list, start, end):
     return res
 
 def criterion_tv_curri(mat):
+    """
+    Calculate matrices of matrices.
+
+    Args:
+        mat: (array): write your description
+    """
     res = torch.abs(mat[:,:,:,:-1] - mat[:,:,:,1:]).view(mat.size(0), -1) \
             + torch.abs(mat[:,:,:-1,:] - mat[:,:,1:,:]).view(mat.size(0), -1)
     res = res
     return res
 
 def criterion_tv(mat):
+    """
+    Calculates the mean of a matrix.
+
+    Args:
+        mat: (array): write your description
+    """
     res = torch.abs(mat).view(mat.size(0), -1).mean(dim=1)
     return res
 
 def criterion_tv_val(mat):
+    """
+    Calculates the mean.
+
+    Args:
+        mat: (array): write your description
+    """
     res = torch.abs(mat).view(mat.size(0), -1).mean()
     return res
 
 def w_hook(grad):
+    """
+    Print the given gradients.
+
+    Args:
+        grad: (array): write your description
+    """
     print "shape of grad:{0}".format(str(grad.shape))
     pdb.set_trace()
 
@@ -154,6 +194,28 @@ else:
 
 def train(epoch, model, criterion, preceptual_criterion, optimizer, w1=1.0, w2=1.0, w3=1.0, w4=1.0, \
         w5=1.0, w6=1.0, w7=1.0, w8=1.0, w9=1.0, w10=1.0, minpercentile=0, maxpercentile=0.50):
+    """
+    Train the model.
+
+    Args:
+        epoch: (int): write your description
+        model: (todo): write your description
+        criterion: (int): write your description
+        preceptual_criterion: (int): write your description
+        optimizer: (todo): write your description
+        w1: (array): write your description
+        w2: (array): write your description
+        w3: (array): write your description
+        w4: (array): write your description
+        w5: (array): write your description
+        w6: (array): write your description
+        w7: (array): write your description
+        w8: (array): write your description
+        w9: (array): write your description
+        w10: (array): write your description
+        minpercentile: (float): write your description
+        maxpercentile: (int): write your description
+    """
 
     train_set = VoxCeleb2(opt.num_views, epoch, 1, jittering=True)
     training_data_loader = DataLoader(dataset=train_set, num_workers=opt.num_workers, 
@@ -381,6 +443,28 @@ def train(epoch, model, criterion, preceptual_criterion, optimizer, w1=1.0, w2=1
 
 def val(epoch, model, criterion, criterion_feature_recon, optimizer,  w1=1.0, w2=1.0, w3=0.1, \
         w4=1.0, w5=1.0, w6=1.0, w7=1.0, w8=1.0, w9=1.0, w10=1.0,  minpercentile=0, maxpercentile=50):
+    """
+    Perform model on the model.
+
+    Args:
+        epoch: (int): write your description
+        model: (todo): write your description
+        criterion: (int): write your description
+        criterion_feature_recon: (bool): write your description
+        optimizer: (todo): write your description
+        w1: (todo): write your description
+        w2: (todo): write your description
+        w3: (todo): write your description
+        w4: (todo): write your description
+        w5: (todo): write your description
+        w6: (todo): write your description
+        w7: (todo): write your description
+        w8: (todo): write your description
+        w9: (todo): write your description
+        w10: (todo): write your description
+        minpercentile: (float): write your description
+        maxpercentile: (float): write your description
+    """
 
     val_set = VoxCeleb2(opt.num_views, 0, 2, jittering=True) 
 
@@ -573,6 +657,14 @@ def val(epoch, model, criterion, criterion_feature_recon, optimizer,  w1=1.0, w2
 
 
 def checkpoint(model, save_path, epoch):
+    """
+    Checkpoint the model.
+
+    Args:
+        model: (todo): write your description
+        save_path: (str): write your description
+        epoch: (int): write your description
+    """
     print "save model, current epoch:{0}".format(epoch)
     save_epoch = epoch + 0
     final_save_path = save_path + '_' + str(save_epoch) + '.pth'
@@ -588,6 +680,13 @@ def checkpoint(model, save_path, epoch):
     torch.save(checkpoint_state, final_save_path)
 
 def run(minpercentile=0, maxpercentile=0.5):
+    """
+    Run the model.
+
+    Args:
+        minpercentile: (float): write your description
+        maxpercentile: (float): write your description
+    """
     scheduler = TrackLoss()
     old_model_name = ''
     print "pretraned model:{0}".format(old_model_name)
